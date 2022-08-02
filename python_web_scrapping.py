@@ -43,9 +43,40 @@ import bs4
 from bs4 import BeautifulSoup
 import pandas as pd
 import os
-import requests
 
 driver = webdriver.Chrome("/home/asus/chromedriver")
 
-search_url = "https://www.freepik.com/"
+search_url = "https://www.freepik.com/search?format=search&query=cars"
 driver.get(search_url)
+
+key_words = ""
+
+content = driver.page_source
+soup = BeautifulSoup(content, 'html.parser')
+
+divTag = soup.select('section.showcase.mg-none-i.showcase--spr div.row figure.showcase__item.caption div.showcase__content a.showcase__link')
+# print(len(divTag))
+# print(divTag)
+imgTag = []
+for x in divTag:
+    imgTag.append(x.find('img'))
+# print(len(imgTag))
+# print(imgTag)
+
+images_url = [{a['src']} for a in imgTag]
+# print(images_url)
+
+list_of_alt = [{a['alt']} for a in imgTag]
+# print(list_of_alt)
+
+# for a in soup.findAll('a',href=True, attrs={'class':'showcase_content'}):
+#     url=a.find('img', attrs={'class':'landscape_loaded'})
+#     alt=a.find('img', attrs={'class':'_1vC4OE _2rQ-NK'})
+#     rating=a.find('div', attrs={'class':'hGSR34 _2beYZw'})
+#     products.append(name.text)
+#     prices.append(price.text)
+#     ratings.append(rating.text)
+
+# html_doc can read from file or url
+# soup = BeautifulSoup(html_doc, features='lxml')
+# print("\n".join([img['alt'] for img in soup.find_all('img', alt=True)]))

@@ -8,3 +8,5 @@
 
 # Then I have followed a document for installing the webdriver:
 #   - https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/
+
+# Image Matching steps-
