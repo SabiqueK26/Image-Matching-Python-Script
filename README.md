@@ -10,3 +10,8 @@
 #   - https://tecadmin.net/setup-selenium-chromedriver-on-ubuntu/
 
 # Image Matching steps-
+- First, I have used the web driver to achieve the search url. 
+- Then, took another variable for the keyword or the search tags. 
+- Afterthat, I have used BeautifulSoup for parsing and scraping the HTML page.
+- And I have also created the image tag list using which I have created other two lists of
+  image urls and image alt(alternate text of an area).
