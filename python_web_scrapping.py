@@ -24,6 +24,25 @@ images_url = [{img['src']} for img in imgTag]
 # print(images_url)
 
 list_of_alt = [alt['alt'] for alt in imgTag]
+# print(list_of_alt)
+
+match_keyword = []
+for i in range(len(list_of_alt)):
+    str = ''.join(list_of_alt[i])
+    # print(str)
+    words = str.split(" ")
+    # print(words)
+    for j in range(len(words)):
+        if words[j] == key_word:
+            sentence = ' '.join(words)
+            print(sentence)
+            match_keyword.append(sentence)
+            break
+        else:
+            continue
+print(match_keyword)
 print(list_of_alt)
 
-# for i in range(len(list_of_alt)):
+for alt in range(len(match_keyword)):
+    if match_keyword[alt] in list_of_alt:
+        print("Done")
